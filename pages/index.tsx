@@ -67,23 +67,22 @@ export default function Home() {
               </div>
               {/* Desktop menu */}
               <div className="hidden md:block">
-                <div className="ml-10 flex items-center space-x-8">
-                  <a href="#about" className="text-seattle-gray hover:text-coffee-dark">About</a>
-                  <a href="#menu" className="text-seattle-gray hover:text-coffee-dark">Menu</a>
-                  <a href="#gallery" className="text-seattle-gray hover:text-coffee-dark">Gallery</a>
-                  <a href="#contact" className="text-seattle-gray hover:text-coffee-dark">Contact</a>
-                </div>
+                <motion.a
+                  href="/login"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn btn-primary"
+                >
+                  Login
+                </motion.a>
               </div>
             </div>
           </div>
           {/* Mobile menu */}
           {isMenuOpen && (
             <div className="md:hidden bg-white">
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                <a href="#about" className="block px-3 py-2 text-seattle-gray hover:text-coffee-dark">About</a>
-                <a href="#menu" className="block px-3 py-2 text-seattle-gray hover:text-coffee-dark">Menu</a>
-                <a href="#gallery" className="block px-3 py-2 text-seattle-gray hover:text-coffee-dark">Gallery</a>
-                <a href="#contact" className="block px-3 py-2 text-seattle-gray hover:text-coffee-dark">Contact</a>
+              <div className="px-2 pt-2 pb-3">
+                <a href="/login" className="block px-3 py-2 text-center bg-coffee-dark text-white rounded-md hover:bg-coffee">Login</a>
               </div>
             </div>
           )}
@@ -145,17 +144,18 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <p className="text-base md:text-lg text-seattle-gray leading-relaxed">
+                <h3 className="text-2xl font-serif text-coffee-dark">Our Story</h3>
+                <p className="text-seattle-gray leading-relaxed">
                   Founded in 2015 in the heart of Seattle, Credit Coffee was born from a simple idea: 
                   to create a space where coffee lovers could experience the perfect cup in a minimalist, 
                   distraction-free environment.
                 </p>
-                <p className="text-base md:text-lg text-seattle-gray leading-relaxed">
+                <p className="text-seattle-gray leading-relaxed">
                   Our journey began with sourcing the finest beans from sustainable farms around the world. 
                   We've built direct relationships with farmers in Colombia, Ethiopia, and Brazil, ensuring 
                   fair trade practices and the highest quality beans.
                 </p>
-                <p className="text-base md:text-lg text-seattle-gray leading-relaxed">
+                <p className="text-seattle-gray leading-relaxed">
                   What sets us apart is our commitment to the craft. Our in-house roasting process is 
                   carefully monitored to bring out the unique characteristics of each bean, creating 
                   complex, balanced flavors that tell a story in every sip.
@@ -165,9 +165,17 @@ export default function Home() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-xl"
+                className="relative h-[600px] rounded-lg overflow-hidden shadow-xl"
               >
-                <div className="absolute inset-0 bg-[url('/images/roasting.jpg')] bg-cover bg-center" />
+                <div 
+                  className="absolute inset-0 bg-[url('/images/our-story.jpg')] bg-cover bg-center transform hover:scale-105 transition-transform duration-500"
+                  style={{ backgroundPosition: '50% 30%' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h4 className="text-xl font-serif mb-2">Our Commitment</h4>
+                  <p className="text-sm text-white/90">Every cup tells a story of dedication, craftsmanship, and passion for coffee.</p>
+                </div>
               </motion.div>
             </div>
             <div className="mt-16 grid md:grid-cols-3 gap-8">
